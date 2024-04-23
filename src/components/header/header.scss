@@ -1,0 +1,132 @@
+@mixin borders() {
+    border-bottom: 1px solid var(--color-grey-15);
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+}
+
+@mixin contentBefore($backgroundUrlImage) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-blend-mode: multiply;
+    background-color: rgba(40, 36, 255, 100%);
+    background-image: url($backgroundUrlImage);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: grayscale(70%);
+}
+
+@mixin title($fontSize) {
+    position: relative;
+
+    font-size: $fontSize;
+    font-weight: 600;
+    text-align: center;
+    color: var(--color-white);
+}
+
+@media screen and (min-width: 1441px) {
+    .header {
+        padding: 0 160px;
+        .container {
+            position: relative;
+
+            padding: 120px 300px;
+
+            @include borders();
+
+            &::before {
+                @include contentBefore('./images/background.png');
+            }
+        }
+    
+        &__title {
+            @include title(2.6667em);
+        }
+    
+        &__subtitle {
+            position: relative;
+
+            margin-top: 14px;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--color-grey-90);
+            font-size: 1.111em;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .header {
+        padding: 0 80px;
+        .container {
+            position: relative;
+
+            padding: 100px 250px;
+
+            @include borders();
+
+            &::before {
+                @include contentBefore('./images/background.png');
+            }
+        }
+    
+        &__title {
+            @include title(2.111em);
+        }
+    
+        &__subtitle {
+            position: relative;
+
+            margin-top: 14px;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--color-grey-90);
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .header {
+        padding: 0 15px;
+
+        .container {
+            position: relative;
+
+            @include borders();
+
+            padding: 50px 16px;
+
+            &::before {
+                @include contentBefore('./images/background-mini.png');
+                height: 99.94%;
+            }
+        }
+
+        &__title {
+            position: relative;
+
+            font-weight: 600;
+            font-size: 1.555em;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+
+        &__subtitle {
+            position: relative;
+
+            font-size: 0.777em;
+            line-height: 1.71;
+            letter-spacing: -0.01em;
+            text-align: center;
+            color: var(--color-grey-90);
+        }
+
+    }
+}
