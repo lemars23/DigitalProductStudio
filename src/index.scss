@@ -74,6 +74,14 @@ a {
 
 // Default css
 
+html::-webkit-scrollbar {
+	width: 0;
+}
+
+.wrapper {
+	-ms-overflow-style: none;
+}
+
 body {
     font-size: 18px;
     font-family: var(--font-family);
@@ -91,3 +99,4 @@ body {
     background-color: #1E1E1E;
 	overflow: hidden;
 }
+

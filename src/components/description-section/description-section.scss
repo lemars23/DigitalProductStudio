@@ -1,0 +1,130 @@
+@mixin title($fontSize) {
+    font-weight: 600;
+    font-size: $fontSize;
+    color: var(--color-white);
+}
+
+@mixin text($marginTop) {
+    margin-top: $marginTop;
+    color: var(--color-grey-90);
+}
+
+@mixin content($width, $borderRadius) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: $width;
+
+    background-color: var(--color-grey-15);
+
+    border-radius: $borderRadius;
+}
+
+@media screen and (min-width: 1441px) {
+    .description-section {
+        padding: 0 160px;
+        
+        .container {
+            padding: 120px 350px 50px 50px;
+            border: 1px solid var(--color-grey-15);
+        }
+
+        &__title {
+            @include title(2.667em);
+        }
+
+        &__text {
+            @include text(50px);
+        }
+
+        &__content {
+            @include content(296px, 8px);
+
+            margin-top: 50px;
+            padding: 12px 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .description-section {
+        padding: 0 80px;
+        
+        .container {
+            margin-top: 57px;
+            padding: 80px 290px 40px 40px;
+            border: 1px solid var(--color-grey-15);
+        }
+
+        &__title {
+            @include title(2.111em);
+        }
+
+        &__text {
+            @include text(10px);
+
+            font-size: 0.888em;
+            
+        }
+
+        &__content {
+            @include content(240px, 6px);
+
+            margin-top: 40px;
+            padding: 10px;
+
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 390px) {
+    .description-section {
+        .container {
+            padding-right: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 390px) {
+    .description-section {
+        .container {
+            padding: 80px 0 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .description-section {
+        padding: 0 15px;
+        
+        .container {
+            padding: 41px 17px;
+
+            border-left: 1px solid var(--color-grey-15);
+            border-right: 1px solid var(--color-grey-15);
+            border-bottom: 1px solid var(--color-grey-15);
+        }
+
+        &__title {
+            @include title(1.556em);
+        }
+
+        &__text {
+            @include text(10px);
+
+            font-size: 0.777em;
+        }
+
+        &__content {
+            @include content(215px, 6px);
+
+            margin-top: 30px;
+            padding: 10px;
+
+            text-align: center;
+            font-size: 0.888em;
+        }
+    }
+}

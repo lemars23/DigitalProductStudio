@@ -11,27 +11,30 @@ import LocationIcon from './icons/location.svg';
 import './footer.scss';
 
 const navLinks = [
-    {name: 'home', href: '/'},
-    {name: 'services', href: '/services'},
-    {name: 'work', href: '/work'},
-    {name: 'process', href: '/process'},
-    {name: 'about', href: '/about'},
-    {name: 'careers', href: '/careers'},
-    {name: 'contact', href: '/contact'},
+    {id: 1, name: 'home', href: '/'},
+    {id: 2, name: 'services', href: '/services'},
+    {id: 3, name: 'work', href: '/work'},
+    {id: 4, name: 'process', href: '/process'},
+    {id: 5, name: 'about', href: '/about'},
+    {id: 6, name: 'careers', href: '/careers'},
+    {id: 7, name: 'contact', href: '/contact'},
 ];
 
 const connectionList = [
     {
+        id: 1,
         href: 'https://www.facebook.com/?locale=ru_RU',
         src: FacebookIcon,
         alt: 'facebook icon'
     },
     {
+        id: 2,
         href: 'https://twitter.com/?lang=ru',
         src: TwitterIcon,
         alt: 'facebook icon'
     },
     {
+        id: 3,
         href: 'https://web.telegram.org',
         src: TelegramIcon,
         alt: 'telegram icon'
@@ -45,16 +48,17 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer__menu">
                         {
-                            document.body.clientWidth > 390 ? <Logotype/> : 
-                            <div className='footer__logo'>
-                                <Logotype/>
-                            </div>
+                            document.body.clientWidth > 390 ? 
+                                <Logotype/> : 
+                                <div className='footer__logo'>
+                                    <Logotype/>
+                                </div>
                         }
                         
                         <ul className="footer__nav">
                             {
                                 navLinks.map(item => 
-                                <li className='footer__item'>
+                                <li className='footer__item' key={item.id}>
                                     <a href={item.href} className="footer__link">{item.name}</a>
                                 </li>)
                             }
@@ -66,7 +70,7 @@ const Footer = () => {
                             <ul className="footer__connections-list">
                                 {
                                     connectionList.map(item => 
-                                    <li className='footer__connections-item'>
+                                    <li className='footer__connections-item' key={item.id}>
                                         <a href={item.href} className="footer__connections-link">
                                             <img src={item.src} alt={item.alt} className="footer__connections-icon" />
                                         </a>

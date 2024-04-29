@@ -10,7 +10,7 @@ const Logotype = () => {
     document.body.clientWidth < 390 ? LogoSmall : null;
 
     return (
-        <a href="/" className="logo">
+        <a href="/" className="logo" key={1}>
             <img src={sizeLogoIcon} alt="Logo icon" className="logo__icon" />
             <p className="logo__brand">
                 <span className="logo__brand_bold">uxui</span>d
