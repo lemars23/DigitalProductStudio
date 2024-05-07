@@ -1,0 +1,152 @@
+@mixin List() {
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin Item($padding) {
+    width: 50%;
+    padding: $padding;
+}
+
+@mixin ItemBorders() {
+    &:nth-child(odd) {
+        border-right: 1px solid var(--color-grey-15);
+    }
+
+    &:nth-child(2n - 2),
+    &:nth-child(2n - 1) {
+        border-bottom: 1px solid var(--color-grey-15);
+    }
+}
+
+@mixin ItemHeading($columnGap) {
+    display: flex;
+    align-items: center;
+    column-gap: $columnGap;
+}
+
+@mixin ItemIcon($padding, $borderRadius) {
+    padding: $padding;
+    border: 1px solid var(--color-grey-15);
+    border-radius: $borderRadius;
+    background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%);
+}
+
+@mixin ItemTitle($fontSize) {
+    font-weight: 500;
+    font-size: $fontSize;
+}
+
+@mixin ItemDesc($marginTop, $fontSize) {
+    margin-top: $marginTop;
+    font-size: $fontSize;
+}
+
+
+@media screen and (min-width: 1441px) {
+    .why-choose-uxuid {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(80px);
+
+            @include ItemBorders();
+
+            &-heading {
+                @include ItemHeading(20px)
+            }
+
+            &-icon {
+                @include ItemIcon(23px, 10px);
+            }
+
+            &-title {
+                @include ItemTitle(1.444em);
+            }
+
+            &-desc {
+                @include ItemDesc(40px, 1.111em);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .why-choose-uxuid {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(60px);
+
+            @include ItemBorders();
+
+            &-heading {
+                @include ItemHeading(14px)
+            }
+
+            &-icon {
+                @include ItemIcon(20px, 8px);
+            }
+
+            &-title {
+                @include ItemTitle(1.111em);
+            }
+
+            &-desc {
+                @include ItemDesc(30px, 0.888em);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .why-choose-uxuid {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            @include List();
+            flex-direction: column
+        }
+
+        &__item {
+            @include Item(0px);
+            width: 100%;
+            padding: 40px 30px;
+            border-bottom: 1px solid var(--color-grey-15);
+
+            &-heading {
+                @include ItemHeading(14px)
+            }
+
+            &-icon {
+                @include ItemIcon(16px, 8px);
+            }
+
+            &-title {
+                @include ItemTitle(1.111em);
+            }
+
+            &-desc {
+                @include ItemDesc(24px, 0.777em);
+            }
+        }
+    }
+}

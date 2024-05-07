@@ -1,0 +1,204 @@
+@mixin List() {
+    display: flex;
+    flex-wrap: wrap;
+    border-right: 1px solid var(--color-grey-15);
+    border-left: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+}
+
+@mixin Item($width) {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &:not(:last-child),
+    &:not(:nth-last-child(2)) {
+        border-bottom: 1px solid var(--color-grey-15);
+    }
+    
+    &:nth-child(odd) {
+        border-right: 1px solid var(--color-grey-15);
+    }
+}
+
+@mixin ItemTitle($fontSize) {
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-green-80);
+}
+
+@mixin ItemProfile($marginTop, $columnGap, $borderRadius) {
+    margin-top: $marginTop;
+    display: flex;
+    align-items: center;
+    column-gap: $columnGap;
+    border: 1px solid var(--color-grey-15);
+    border-radius: $borderRadius;
+}
+
+@mixin ProfileName($fontSize) {
+    font-size: $fontSize;
+    font-weight: 500;
+}
+
+@mixin Link($borderRadius) {
+    margin-left: auto;
+    display: inline-block;
+    background-color: var(--color-grey-15);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width: 1441px) {
+    .clients-about-us {
+        & > .container {
+                padding: 0 160px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(50%);
+            padding: 100px 80px;
+
+            &-title {
+                @include ItemTitle(1.5556em);
+            }
+
+            &-desc {
+                margin-top: 24px;
+            }
+
+            &-profile {
+                @include ItemProfile(40px, 18px, 8px);
+                padding: 20px;
+            }
+        }
+
+        &__profile {
+            &-icon {
+                width: 60px;
+            }
+
+            &-name {
+                @include ProfileName(1.111em);
+            }
+
+            &-position {
+                color: var(--color-grey-90);
+            }
+        }
+
+        &__link {
+            padding: 18px 20px;
+            @include Link(8px);
+        }
+    }
+}
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .clients-about-us {
+        & > .container {
+                padding: 0 80px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(50%);
+            padding: 80px 60px;
+
+            &-title {
+                @include ItemTitle(1.111em);
+            }
+
+            &-desc {
+                margin-top: 20px;
+                font-size: 0.888em;
+            }
+
+            &-profile {
+                @include ItemProfile(40px, 18px, 6px);
+                padding: 14px;
+            }
+        }
+
+        &__profile {
+            &-icon {
+                width: 50px;
+            }
+
+            &-name {
+                @include ProfileName(0.888em);
+            }
+
+            &-position {
+                color: var(--color-grey-90);
+                font-size: 0.777em;
+            }
+        }
+
+        &__link {
+            padding: 18px 20px;
+            @include Link(8px);
+            font-size: 0.777em;
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    .clients-about-us {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column
+        }
+
+        &__item {
+            padding: 40px 24px;
+            border-left: 1px solid var(--color-grey-15);
+            border-right: 1px solid var(--color-grey-15);
+            border-bottom: 1px solid var(--color-grey-15);
+
+            &-title {
+                @include ItemTitle(1em);
+            }
+
+            &-desc {
+                margin-top: 20px;
+                font-size: 0.777em;
+            }
+
+            &-profile {
+                @include ItemProfile(24px, 18px, 6px);
+                padding: 14px;
+            }
+        }
+
+        &__profile {
+            &-icon {
+                width: 40px;
+            }
+
+            &-name {
+                @include ProfileName(0.888em);
+            }
+
+            &-position {
+                color: var(--color-grey-90);
+                font-size: 0.777em;
+            }
+        }
+
+        &__link {
+            display: none;
+        }
+    }
+}

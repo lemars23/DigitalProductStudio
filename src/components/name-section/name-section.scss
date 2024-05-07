@@ -13,7 +13,7 @@
     height: 100%;
     background-blend-mode: multiply;
     background-color: rgba(40, 36, 255, 100%);
-    background-image: url($backgroundUrlImage);
+    // background-image: url($backgroundUrlImage);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     filter: grayscale(70%);
@@ -29,7 +29,7 @@
 }
 
 @media screen and (min-width: 1441px) {
-    .header {
+    .name-section {
         padding: 0 160px;
         .container {
             position: relative;
@@ -38,7 +38,7 @@
 
             @include borders();
 
-            &::before {
+            &__background {
                 @include contentBefore('./images/background.png');
             }
         }
@@ -61,7 +61,7 @@
 }
 
 @media screen and (max-width: 1440px) and (min-width: 390px) {
-    .header {
+    .name-section {
         padding: 0 80px;
         .container {
             position: relative;
@@ -70,7 +70,7 @@
 
             @include borders();
 
-            &::before {
+            &__background {
                 @include contentBefore('./images/background.png');
                 width: 100.01%;
             }
@@ -93,7 +93,7 @@
 }
 
 @media screen and (max-width: 390px) {
-    .header {
+    .name-section {
         padding: 0 15px;
 
         .container {
@@ -103,7 +103,7 @@
 
             padding: 50px 16px;
 
-            &::before {
+            &__background {
                 @include contentBefore('./images/background-mini.png');
                 height: 99.94%;
             }
@@ -128,6 +128,5 @@
             text-align: center;
             color: var(--color-grey-90);
         }
-
     }
 }

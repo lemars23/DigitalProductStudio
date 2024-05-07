@@ -1,4 +1,4 @@
-import Logotype from '../logotype/Logotype';
+import Logotype from '../logotype/logotype';
 
 import FacebookIcon from './icons/facebook.svg';
 import TwitterIcon from './icons/twitter.svg';

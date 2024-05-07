@@ -1,0 +1,175 @@
+@mixin OurServicesList() {
+    display: flex;
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+}
+
+@mixin OurServciesItem($width, $min-height, $padding) {
+    width: $width;
+    min-height: $min-height;
+    padding: $padding;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin OurServciesItemIcon($padding) {
+    align-self: start;
+    display: inline-block;
+    padding: $padding;
+    border: 1px solid var(--color-grey-15);
+    border-radius: 10px;
+    background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%);
+}
+
+@mixin OurServciesItemDesc($line-height) {
+    line-height: $line-height;
+    color: var(--color-grey-90);
+}
+
+@mixin OurServciesItemTitle($font-size) {
+    font-weight: 600;
+    font-size: $font-size;
+}
+
+@mixin OurServciesItemLink($paddingTop, $fontSize) {
+    width: 100%;
+    display: inline-block;
+    padding: $paddingTop 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: $fontSize;
+    color: var(--color-white);
+    background: var(--color-grey-15);
+}
+
+@media screen and (min-width: 1441px) {
+    .our-services {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__mobile {
+            display: none;
+        }
+
+        &__list {
+            @include OurServicesList();
+        }
+
+        &__item {
+            @include OurServciesItem(33.3%, 532px, 50px);
+
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include OurServciesItemIcon(24px);
+            }
+
+            &-title {
+                @include OurServciesItemTitle(1.6667em);
+            }
+
+            &-desc {
+                @include OurServciesItemDesc(1.33);
+            }
+
+            &-link {
+                @include OurServciesItemLink(18px, 1em);
+            }
+        }
+    }
+}
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .our-services {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__mobile {
+            display: none;
+        }
+
+        &__list {
+            @include OurServicesList();
+        }
+
+        &__item {
+            @include OurServciesItem(33.3%, 510px, 40px);
+
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include OurServciesItemIcon(20px);
+            }
+
+            &-title {
+                @include OurServciesItemTitle(1.333em);
+            }
+
+            &-desc {
+                font-size: 0.888em;
+                @include OurServciesItemDesc(1.5);
+            }
+
+            &-link {
+                @include OurServciesItemLink(18px, 0.777em);
+            }
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    .our-services {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            @include OurServicesList();
+            flex-direction: column;
+        }
+        
+        &__mobile {
+            display: flex;
+            align-items: center;
+            column-gap: 14px;
+            &-icon {
+                width: 58px;
+                @include OurServciesItemIcon(16px);
+            }
+
+            &-title {
+                @include OurServciesItemTitle(1.111em);
+            }
+        }
+
+        &__item {
+            @include OurServciesItem(100%, 100%, 30px);
+            row-gap: 24px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-grey-15);
+            }
+
+            &-icon, &-title {
+                display: none;
+            }
+
+            &-desc {
+                font-size: 0.777em;
+                @include OurServciesItemDesc(1.5);
+            }
+
+            &-link {
+                @include OurServciesItemLink(14px, 0.777em);
+            }
+        }
+    }
+}

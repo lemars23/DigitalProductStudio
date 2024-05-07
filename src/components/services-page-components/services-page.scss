@@ -1,0 +1,141 @@
+@mixin Borders() {
+    border-bottom: 1px solid var(--color-grey-15);
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+}
+
+@mixin ServiceTitle($padding, $fontSize) {
+    padding: $padding 0 $padding $padding;
+    @include Borders();
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-grey-60);
+}
+
+@mixin Item($width, $padding) {
+    width: $width;
+    padding: $padding;
+}
+
+@mixin ItemIcon($padding, $borderRadius) {
+    padding: $padding;
+    border-radius: $borderRadius;
+    border: 1px solid var(--color-grey-15);
+    background: linear-gradient(190deg, rgba(26,26,39,0.2) 22%, rgba(25,25,25,0.2) 100%);
+}
+
+@mixin ItemName($marginTop, $fontSize) {
+    margin-top: $marginTop;
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-grey-90);
+}
+
+@media screen and (min-width: 1441px) {
+    .service-section {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__title {
+            @include ServiceTitle(50px, 1.556em);
+        }
+
+        &__list {
+            display: flex;
+            @include Borders();
+        }
+
+        &__item {
+            @include Item(25%, 50px);
+
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(24px, 12px);
+            }
+
+            &-name {
+                @include ItemName(30px, 1.111em);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .service-section {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__title {
+            @include ServiceTitle(40px, 1.222em);
+        }
+
+        &__list {
+            display: flex;
+            @include Borders();
+        }
+
+        &__item {
+            @include Item(25%, 40px);
+
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(20px, 8px);
+            }
+
+            &-name {
+                @include ItemName(30px, 0.888em);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .service-section {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__title {
+            @include ServiceTitle(0px, 1.111em);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            @include Borders();
+        }
+
+        &__item {
+            @include Item(50%, 20px);
+
+            &:not(:nth-child(2n)) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &:not(:nth-last-child(-n + 2)) {
+                border-bottom: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(16px, 8px);
+                border: 0;
+
+                
+            }
+
+            &-name {
+                @include ItemName(20px, 0.888em);
+            }
+        }
+    }
+}

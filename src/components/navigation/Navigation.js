@@ -1,9 +1,7 @@
-
-
 import BurgerMenu from './icons/Burger-menu.svg';
 import CrossMenu from './icons/Cross.svg';
 
-import Logotype from '../logotype/Logotype';
+import Logotype from '../logotype/logotype';
 
 import './navigation.scss';
 
