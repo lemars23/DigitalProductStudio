@@ -1,0 +1,238 @@
+@mixin List() {
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin Item($width, $paddingGorizontal) {
+    width: $width;
+
+    & > * {
+        padding: 0 $paddingGorizontal;
+    }
+
+    &:nth-child(2n - 1) {
+        border-right: 1px solid var(--color-grey-15);
+    }
+
+    &:not(:nth-last-child(-n + 2)) {
+        border-bottom: 1px solid var(--color-grey-15);
+    }
+}
+
+@mixin ItemName($paddingGorizontal, $paddingBottom, $fontSize) {
+    border-bottom: 1px solid var(--color-grey-15);
+    padding: 0 $paddingGorizontal $paddingBottom;
+    text-align: center;
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-grey-60);
+}
+
+@mixin ItemImage($marginTop) {
+    width: 100%;
+    margin-top: $marginTop;
+}
+
+@mixin ItemData($marginTop) {
+    margin-top: $marginTop;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin ItemDesc($marginTop) {
+    margin-top: $marginTop;
+    color: var(--color-grey-60);
+}
+
+@mixin ContentTitle($fontSize) {
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-grey-90);
+}
+
+@mixin ContentLink($marginTop, $borderRadius, $fontSize) {
+    margin-top: $marginTop;
+    border-radius: $borderRadius;
+    background: var(--color-grey-15);
+    font-size: $fontSize;
+    color: var(--color-grey-60);
+}
+
+@mixin DataArrow($padding, $borderRadius) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $padding;
+    border-radius: $borderRadius;
+    background: var(--color-grey-15);
+}
+
+@media screen and (min-width: 1441px) {
+    .our-works {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            padding: 30px 0 100px;
+            @include Item(50%, 50px);
+
+            &-name {
+                @include ItemName(50px, 30px, 1.444em);
+            }
+
+            &-image {
+                @include ItemImage(30px);
+            }
+
+            &-data {
+                @include ItemData(30px);
+            }
+
+            &-desc {
+                @include ItemDesc(30px);
+            }
+        }
+
+        &__content {
+            &-title {
+                @include ContentTitle(1.333em);
+            }
+
+            &-link {
+                padding: 10px 14px;
+                @include ContentLink(10px, 8px, 1.111em);
+            }
+        }
+
+        &__data-arrow {
+            @include DataArrow(10px, 8px);
+            
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .our-works {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(50%, 40px);
+
+            padding: 24px 0 80px;
+
+            &:nth-last-child(-n + 2) {
+                padding: 24px 0 100px;
+            }
+
+            &-name {
+                @include ItemName(40px, 24px, 1.111em);
+            }
+
+            &-image {
+                @include ItemImage(30px);
+            }
+
+            &-data {
+                @include ItemData(24px);
+            }
+
+            &-desc {
+                @include ItemDesc(24px);
+                font-size: 0.888em;
+            }
+        }
+
+        &__content {
+            &-title {
+                @include ContentTitle(1em);
+            }
+
+            &-link {
+                padding: 10px 14px;
+                @include ContentLink(10px, 8px, 0.888em);
+            }
+        }
+
+        &__data-arrow {
+            @include DataArrow(10px, 6px);
+        }
+
+        &__arrow-icon {
+            width: 26px;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .our-works {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            @include List();
+            flex-direction: column;
+        }
+
+        &__item {
+            @include Item(100%, 24px);
+
+            padding: 20px 0 40px;
+
+            &:nth-last-child(-n + 2) {
+                padding: 24px 0 100px;
+            }
+
+            &-name {
+                @include ItemName(40px, 24px, 1.111em);
+            }
+
+            &-image {
+                @include ItemImage(30px);
+            }
+
+            &-data {
+                @include ItemData(20px);
+                align-items: end;
+            }
+
+            &-desc {
+                @include ItemDesc(20px);
+                font-size: 0.777em;
+            }
+        }
+
+        &__content {
+            &-title {
+                @include ContentTitle(1em);
+            }
+
+            &-link {
+                padding: 10px 14px;
+                @include ContentLink(10px, 8px, 0.777em);
+            }
+        }
+
+        &__data-arrow {
+            @include DataArrow(10px, 6px);
+        }
+
+        &__arrow-icon {
+            width: 26px;
+        }
+    }
+}

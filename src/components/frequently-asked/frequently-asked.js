@@ -1,23 +1,9 @@
-import PlusLargeIcon from './icons/pluses/plus-large.svg';
-import PlusMediumIcon from './icons/pluses/plus-medium.svg';
-import PlusSmallIcon from './icons/pluses/plus-small.svg';
-
-import CrossLargeIcon from './icons/crosses/cross-large.svg';
-import CrossMediumIcon from './icons/crosses/cross-medium.svg';
-import CrossSmallIcon from './icons/crosses/cross-small.svg';
+import PlusIcon from './icons/pluses/plus-large.svg';
+import CrossIcon from './icons/crosses/cross-large.svg';
 
 import './frequently-asked.scss';
 
-
 function getAccordionDescription(event) {
-    const sizePlusIcon = document.body.clientWidth > 1920 ? PlusLargeIcon : 
-    document.body.clientWidth < 1920 && document.body.clientWidth > 390 ? PlusMediumIcon : 
-    document.body.clientWidth < 390 ? PlusSmallIcon : null;
-
-    const sizeCrossIcon = document.body.clientWidth > 1920 ? CrossLargeIcon : 
-    document.body.clientWidth < 1920 && document.body.clientWidth > 390 ? CrossMediumIcon : 
-    document.body.clientWidth < 390 ? CrossSmallIcon : null;
-
 
     Array.from(document.querySelectorAll('.frequently-asked__panel_active')).map(item => item.classList.remove('frequently-asked__panel_active'));
 
@@ -25,22 +11,19 @@ function getAccordionDescription(event) {
 
     Array.from(document.querySelectorAll('.frequently-asked__accordion-desc_active')).map(item => item.classList.remove('frequently-asked__accordion-desc_active'));
 
-    Array.from(document.querySelectorAll('.frequently-asked__accordion-icon')).map(item => item.src = sizePlusIcon);
+    Array.from(document.querySelectorAll('.frequently-asked__accordion-icon')).map(item => item.src = PlusIcon);
 
     if(!event.target.closest('.frequently-asked__question').lastElementChild.classList.contains('frequently-asked__panel_active')) {
         event.target.closest('.frequently-asked__question').lastElementChild.classList.add('frequently-asked__panel_active');
 
         event.target.closest('.frequently-asked__question').firstElementChild.children[0].classList.add('frequently-asked__accordion-desc_active');
         event.target.closest('.frequently-asked__question').firstElementChild.children[1].classList.add('frequently-asked__accordion-desc_active');
-        event.target.closest('.frequently-asked__question').firstElementChild.children[2].src = sizeCrossIcon;
+        event.target.closest('.frequently-asked__question').firstElementChild.children[2].src = CrossIcon;
     }
 
 }
 
 const FrequentlyAsked = () => {
-    const sizePlusIcon = document.body.clientWidth > 1920 ? PlusLargeIcon : 
-    document.body.clientWidth < 1920 && document.body.clientWidth > 390 ? PlusMediumIcon : 
-    document.body.clientWidth < 390 ? PlusSmallIcon : null;
 
     return (
         <section className="frequently-asked">
@@ -62,7 +45,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     What services does UXUID provide?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -76,7 +59,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     How can UXUID help my business?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -90,7 +73,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     What industries does UXUID work with?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -104,7 +87,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     How long does it take to complete a project with UXUID?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -120,7 +103,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     Do you offer ongoing support and maintenance after the project is completed?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -134,7 +117,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     Can you work with existing design or development frameworks?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -148,7 +131,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     How involved will I be in the project development process?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">
@@ -162,7 +145,7 @@ const FrequentlyAsked = () => {
                                 <div className="frequently-asked__accordion-desc">
                                     Can you help with website or app maintenance and updates?
                                 </div>
-                                <img src={sizePlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
+                                <img src={PlusIcon} alt="Plus icon" className="frequently-asked__accordion-icon" />
                             </button>
                             <div className="frequently-asked__panel">
                                 <p className="frequently-asked__panel-text">

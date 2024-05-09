@@ -14,12 +14,14 @@ const chooseNav = function() {
         const navigationList = document.querySelector('.navigation__list');
 
         if (navigationContent.classList.contains('navigation__close') && navigationList.classList.contains('navigation__close')) {
+            
             navigationContent.classList.remove('navigation__close');
             navigationList.classList.remove('navigation__close');
         }
 
         navigationList.classList.add('navigation__flex');
         navigationContent.classList.add('navigation__open');
+        document.body.style.overflow = 'hidden';
     };
 
     const onClickCloseMenu = () => {
@@ -27,12 +29,14 @@ const chooseNav = function() {
         const navigationList = document.querySelector('.navigation__list');
 
         if (navigationContent.classList.contains('navigation__open') && navigationList.classList.contains('navigation__flex')) {
+
             navigationContent.classList.remove('navigation__open');
             navigationList.classList.remove('navigation__flex');
         }
 
         navigationList.classList.add('navigation__close');
         navigationContent.classList.add('navigation__close');
+        document.body.style.overflow = 'visible';
     };
 
     if(document.body.clientWidth > 390) {
@@ -68,13 +72,27 @@ const chooseNav = function() {
                         <img src={CrossMenu} alt="Cross icon" className="navigation__cross-icon" onClick={onClickCloseMenu} />
                     </div>
                     <ul className="navigation__list">
-                        <li className="navigation__item"><a href="/" className="navigation__link">home</a></li>
-                        <li className="navigation__item"><a href="/services" className="navigation__link">services</a></li>
-                        <li className="navigation__item"><a href="/work" className="navigation__link">work</a></li>
-                        <li className="navigation__item"><a href="/process" className="navigation__link">process</a></li>
-                        <li className="navigation__item"><a href="/about" className="navigation__link">about</a></li>
-                        <li className="navigation__item"><a href="/careers" className="navigation__link">careers</a></li>
-                        <li className="navigation__item"><a href="/contact" className="navigation__link">contact us</a></li>
+                        <li className="navigation__item">
+                            <a href="/" className="navigation__link">home</a>
+                        </li>
+                        <li className="navigation__item">
+                            <a href="/services" className="navigation__link">
+                        services</a></li>
+                        <li className="navigation__item">
+                            <a href="/work" className="navigation__link">work
+                        </a></li>
+                        <li className="navigation__item">
+                            <a href="/process" className="navigation__link">p
+                        rocess</a></li>
+                        <li className="navigation__item">
+                            <a href="/about" className="navigation__link">abo
+                        ut</a></li>
+                        <li className="navigation__item">
+                            <a href="/careers" className="navigation__link">c
+                        areers</a></li>
+                        <li className="navigation__item">
+                            <a href="/contact" className="navigation__link">c
+                        ontact us</a></li>
                     </ul>
                 </div>
             </>
