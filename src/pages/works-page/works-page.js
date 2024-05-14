@@ -4,7 +4,7 @@ import { Component } from "react";
 import Navigation from "../../components/navigation/navigation";
 import Footer from '../../components/footer/footer';
 import NameSection from '../../components/name-section/name-section';
-import LetUsBring from "../../components/let-us-bring/let-us-bring";
+import StartProject from "../../components/start-project/start-project";
 import OurWorks from "../../components/our-works-components/our-works-components";
 
 
@@ -19,7 +19,10 @@ class  WorksPage extends Component {
                     backgroundImageNumber='first'
                 />
                 <OurWorks />
-                <LetUsBring />
+                <StartProject 
+                    title='Let us Bring your Ideas to Life in the Digital World.' 
+                    text='No matter which services you choose, we are committed to delivering exceptional results that exceed your expectations. Our multidisciplinary team works closely together to ensure seamless collaboration and a unified vision for your digital product.'    
+                />
                 <Footer />
             </>
         );

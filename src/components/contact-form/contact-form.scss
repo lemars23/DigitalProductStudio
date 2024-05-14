@@ -261,7 +261,7 @@
 
 @media screen and (max-width: 1440px) and (min-width: 390px) {
     .contact-form {
-        padding: 80px;
+        padding: 0 80px;
         .container {
             @include contactFormContainer(215px);
         }

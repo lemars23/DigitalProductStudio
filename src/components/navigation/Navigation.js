@@ -76,23 +76,23 @@ const chooseNav = function() {
                             <a href="/" className="navigation__link">home</a>
                         </li>
                         <li className="navigation__item">
-                            <a href="/services" className="navigation__link">
-                        services</a></li>
+                            <a href="/services" className="navigation__link">services</a>
+                        </li>
                         <li className="navigation__item">
                             <a href="/work" className="navigation__link">work
                         </a></li>
                         <li className="navigation__item">
-                            <a href="/process" className="navigation__link">p
-                        rocess</a></li>
+                            <a href="/process" className="navigation__link">process</a>
+                        </li>
                         <li className="navigation__item">
-                            <a href="/about" className="navigation__link">abo
-                        ut</a></li>
+                            <a href="/about" className="navigation__link">about</a>
+                        </li>
                         <li className="navigation__item">
-                            <a href="/careers" className="navigation__link">c
-                        areers</a></li>
+                            <a href="/careers" className="navigation__link">careers</a>
+                        </li>
                         <li className="navigation__item">
-                            <a href="/contact" className="navigation__link">c
-                        ontact us</a></li>
+                            <a href="/contact" className="navigation__link">contact us</a>
+                        </li>
                     </ul>
                 </div>
             </>

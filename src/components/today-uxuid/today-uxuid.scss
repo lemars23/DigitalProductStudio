@@ -4,6 +4,8 @@
 
         .container {
             padding: 80px;
+            border-left: 1px solid var(--color-grey-15);
+            border-right: 1px solid var(--color-grey-15);
         }
 
         &__content {
@@ -61,6 +63,11 @@
                 color: var(--color-grey-10);
             }
         }
+
+        &__icon {
+            width: 150px;
+            height: 150px;
+        }
     }
 }
 @media screen and (max-width: 1440px) and (min-width: 390px) {
@@ -69,6 +76,8 @@
 
         .container {
             padding: 60px;
+            border-left: 1px solid var(--color-grey-15);
+            border-right: 1px solid var(--color-grey-15);
         }
 
         &__content {
@@ -124,6 +133,11 @@
                 color: var(--color-grey-10);
             }
         }
+
+        &__icon {
+            width: 100px;
+            height: 100px;
+        }
     }
 }
 @media screen and (max-width: 390px) {
@@ -132,6 +146,8 @@
 
         .container {
             padding: 40px 24px;
+            border-left: 1px solid var(--color-grey-15);
+            border-right: 1px solid var(--color-grey-15);
         }
 
         &__content {
@@ -195,6 +211,11 @@
                 color: var(--color-grey-10);
                 font-size: 0.77em;
             }
+        }
+
+        &__icon {
+            width: 80px;
+            height: 80px;
         }
     }
 }

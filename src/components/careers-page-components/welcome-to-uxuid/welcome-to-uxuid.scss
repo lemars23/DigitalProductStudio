@@ -1,0 +1,123 @@
+@mixin List() {
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin Item($width) {
+    width: $width;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin Title($paddingBottom, $fontSize) {
+    padding-bottom: $paddingBottom;
+    font-size: $fontSize;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-grey-15);
+    color: var(--color-green-80);
+}
+
+@mixin Desc($paddingTop) {
+    padding-top: $paddingTop;
+    color: var(--color-grey-60);
+}
+
+@mixin ItemBorders() {
+    &:nth-child(2n - 1) {
+        border-right: 1px solid var(--color-grey-15);
+    }
+
+    &:not(:nth-last-child(-n + 2)) {
+        border-bottom: 1px solid var(--color-grey-15);
+    }
+}
+
+@media screen and (min-width: 1441px) {
+    .welcome-to-uxuid {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            padding: 100px 50px;
+
+            @include Item(50%);
+            @include ItemBorders();
+
+            &-title {
+                @include Title(50px, 2.222em);
+            }
+
+            &-desc {
+                @include Desc(50px);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .welcome-to-uxuid {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            padding: 80px 40px;
+
+            @include Item(50%);
+            @include ItemBorders();
+
+            &-title {
+                @include Title(40px, 1.778em);
+            }
+
+            &-desc {
+                @include Desc(30px);
+                font-size: 0.888em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .welcome-to-uxuid {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            @include List();
+            flex-direction: column;
+        }
+
+        &__item {
+            padding: 40px 16px;
+
+            @include Item(100%);
+            
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-grey-15);
+            }
+            &-title {
+                @include Title(20px, 1.444em);
+            }
+
+            &-desc {
+                @include Desc(20px);
+                font-size: 0.777em;
+            }
+        }
+    }
+}

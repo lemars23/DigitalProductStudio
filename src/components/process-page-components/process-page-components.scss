@@ -1,0 +1,152 @@
+@mixin List() {
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+}
+
+@mixin Item($width, $paddingVertical, $paddingGorizontal) {
+    width: $width;
+    padding: $paddingVertical $paddingGorizontal;
+
+    &:nth-child(odd) {
+        border-right: 1px solid var(--color-grey-15);
+    }
+
+    &:not(:nth-last-child(-n + 2)) {
+        border-bottom: 1px solid var(--color-grey-15);
+    }
+}
+
+@mixin Data($columnGap) {
+    display: flex;
+    align-items: end;
+    column-gap: $columnGap;
+}
+
+@mixin Number($fontSize) {
+    font-weight: 600;
+    font-size: $fontSize;
+    color: var(--color-green-80);
+    line-height: 1;
+}
+
+@mixin Title($fontSize) {
+    border-bottom: 1px solid var(--color-grey-15);
+    font-size: $fontSize;
+    font-weight: 500;
+    color: var(--color-grey-60);
+}
+
+@mixin Desc($marginTop) {
+    margin-top: $marginTop;
+    color: var(--color-grey-60);
+    font-family: var(--second-family);
+}
+
+@media screen and (min-width: 1441px) {
+    .process {
+        & > .container {
+            padding: 0 160px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(50%, 100px, 50px);
+
+            &-data {
+                @include Data(14px);
+            }
+
+            &-number {
+                @include Number(8.333em);
+            }
+
+            &-title {
+                width: 100%;
+                padding-bottom: 26px;
+
+                @include Title(1.667em);
+            }
+
+            &-desc {
+                @include Desc(50px);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .process {
+        & > .container {
+            padding: 0 80px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(50%, 80px, 40px);
+          
+
+            &-data {
+                @include Data(14px);
+            }
+
+            &-number {
+                @include Number(6.667em);
+            }
+
+            &-title {
+                width: 100%;
+                padding-bottom: 26px;
+                @include Title(1.333em);
+            }
+
+            &-desc {
+                @include Desc(40px);
+                font-size: 0.888em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .process {
+        & > .container {
+            padding: 0 15px;
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            @include Item(100%, 40px, 24px);
+          
+
+            &-data {
+                @include Data(10px);
+            }
+
+            &-number {
+                @include Number(4.444em);
+            }
+
+            &-title {
+                width: 100%;
+                padding-bottom: 14px;
+                @include Title(1.111em);
+            }
+
+            &-desc {
+                @include Desc(30px);
+                font-size: 0.777em;
+            }
+        }
+    }
+}

@@ -148,6 +148,7 @@
 
             &-data {
                 @include ItemData(24px);
+                column-gap: 32px;
             }
 
             &-desc {
@@ -164,6 +165,8 @@
             &-link {
                 padding: 10px 14px;
                 @include ContentLink(10px, 8px, 0.888em);
+                word-break: break-all
+
             }
         }
 
@@ -208,6 +211,7 @@
             &-data {
                 @include ItemData(20px);
                 align-items: end;
+                column-gap: 32px;
             }
 
             &-desc {
@@ -224,6 +228,7 @@
             &-link {
                 padding: 10px 14px;
                 @include ContentLink(10px, 8px, 0.777em);
+                word-break: break-all
             }
         }
 

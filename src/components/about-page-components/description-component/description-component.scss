@@ -1,0 +1,107 @@
+@mixin Inner($paddingVertical, $paddingGorizontal) {
+    padding: $paddingVertical $paddingGorizontal;
+    border-left: 1px solid var(--color-grey-15);
+    border-right: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+}
+
+@mixin Container() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+}
+
+@mixin Title($fontSize) {
+    font-size: $fontSize;
+    font-weight: 600;
+}
+
+@mixin Text($marginTop, $fontSize) {
+    margin-top: $marginTop;
+    font-size: $fontSize;
+    color: var(--color-grey-90);
+}
+
+@media screen and (min-width: 1441px) {
+    .about-description {
+        padding: 0 160px;
+
+
+        &__inner {
+            @include Inner(100px, 150px);
+        }
+        .container {
+            @include Container();
+        }
+
+        &__title {
+            @include Title(2.667em);
+        }
+
+        &__text {
+            @include Text(20px, 1.111em);
+        }
+
+        &__image {
+            width: 598px;
+            height: 571px;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .about-description {
+        padding: 0 80px;
+
+
+        &__inner {
+            @include Inner(80px, 100px);
+        }
+
+        .container {
+            @include Container();
+        }
+
+        &__title {
+            @include Title(2.111em);
+        }
+
+        &__text {
+            @include Text(16px, 0.888em);
+        }
+
+        &__image {
+            width: 490px;
+            height: 483px;
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .about-description {
+        .container {
+            padding: 40px 15px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 30px;
+        }
+
+        &__title {
+            @include Title(1.556em);
+        }
+
+        &__text {
+            @include Text(16px, 0.777em);
+        }
+
+        &__image {
+            width: 100%;
+            border: 1px solid var(--color-grey-15);
+            border-radius: 12px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+    }
+}

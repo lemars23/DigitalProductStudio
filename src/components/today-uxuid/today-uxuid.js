@@ -1,19 +1,14 @@
 import './today-uxuid.scss';
 
-import LogoLarge from './icons/Logo-large.svg';
-import LogoMedium from './icons/Logo-medium.svg';
-import LogoSmall from './icons/Logo-small.png';
+import Logo from './icons/Logo-large.svg';
 
 const TodayUxuid = () => {
-    const sizeLogoIcon = document.body.clientWidth > 1920 ? LogoLarge : 
-    document.body.clientWidth < 1920 && document.body.clientWidth > 390 ? LogoMedium : 
-    document.body.clientWidth < 390 ? LogoSmall : null;
 
     return (
         <section className="today-uxuid">
             <div className="container">
                 <div className="today-uxuid__content">
-                    <img src={sizeLogoIcon} alt="Logo icon" className="today-uxuid__icon" />
+                    <img src={Logo} alt="Logo icon" className="today-uxuid__icon" />
 
                     <div className="today-uxuid__info">
                         <h3 className="today-uxuid__title">

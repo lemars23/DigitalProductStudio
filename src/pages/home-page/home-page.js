@@ -3,10 +3,10 @@ import { Component } from "react";
 
 import Navigation from "../../components/navigation/navigation";
 import Footer from '../../components/footer/footer';
-import NameSection from '../../components/name-section/name-section';
-import DescriptionSection from "../../components/description-section/description-section";
-import TodayUxuid from "../../components/today-uxuid/today-uxuid";
-import LetUsBring from "../../components/let-us-bring/let-us-bring";
+// import NameSection from '../../components/name-section/name-section';
+// import DescriptionSection from "../../components/description-section/description-section";
+// import TodayUxuid from "../../components/today-uxuid/today-uxuid";
+import StartProject from "../../components/start-project/start-project";
 import FrequentlyAsked from "../../components/frequently-asked/frequently-asked";
 import ContactForm from "../../components/contact-form/contact-form";
 import HeroSection from "../../components/hero-section/hero-section";
@@ -26,6 +26,10 @@ class  HomePage extends Component {
                 <WhyChooseUxuid />
                 <ClientAboutUs />
                 <FrequentlyAsked />
+                <StartProject 
+                    title='Thank you for your Interest in UXUID.' 
+                    text='We would love to hear from you and discuss how we can help bring your digital ideas to life. Here are the different ways you can get in touch with us.'    
+                />
                 <ContactForm />
                 <Footer />
             </>

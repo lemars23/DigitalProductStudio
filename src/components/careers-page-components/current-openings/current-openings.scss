@@ -1,0 +1,245 @@
+@mixin Data($paddingGorizontal) {
+    border-bottom: 1px solid var(--color-grey-15);
+    padding: 0 $paddingGorizontal;
+}
+
+@mixin DataTitle($fontSize) {
+    font-size: $fontSize;
+    font-weight: 600;
+}
+
+@mixin DataDesc($paddingBottom) {
+    color: var(--color-grey-90);
+    padding-bottom: $paddingBottom;
+}
+
+@mixin Title($padding, $fontSize) {
+    padding: $padding 0 $padding $padding;
+    font-weight: 500;
+    font-size: $fontSize;
+    color: var(--color-grey-60);
+}
+
+@mixin List() {
+    border-top: 1px solid var(--color-grey-15);
+    border-bottom: 1px solid var(--color-grey-15);
+    display: flex;
+}
+
+@mixin Item() {
+    width: 33.333%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin ItemIcon($width, $height, $padding) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    border: 1px solid var(--color-grey-15);
+    border-radius: 12px;
+    background: linear-gradient(190deg, rgba(26, 26, 39, 0.2) 22%, rgba(25, 25, 25, 0.2) 100%);
+}
+
+@mixin ItemTitle($marginTop, $fontSize) {
+    margin-top: $marginTop;
+    font-size: $fontSize;
+    font-weight: 500;
+}
+
+@mixin ItemDesc($marginTop) {
+    margin-top: $marginTop;
+    color: var(--color-grey-90);
+}
+
+@mixin ItemButton($marginTop, $borderRadius) {
+    width: 100%;
+    margin-top: $marginTop;
+    border-radius: $borderRadius;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.33;
+    color: var(--color-white);
+    background: var(--color-grey-15);
+}
+
+
+@media screen and (min-width: 1441px) {
+    .current-openings {
+        padding: 0 160px;
+
+        .container {
+            border: 1px solid var(--color-grey-15);
+        }
+
+        &__data {
+            @include Data(50px);
+            &-title {
+                padding: 120px 0 50px;
+                @include DataTitle(2.667em);
+            }
+            &-desc {
+                @include DataDesc(50px);
+            }
+        }
+
+        &__title {
+            @include Title(50px, 1.556em);
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            padding: 50px;
+            @include Item();
+
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(88px, 88px, 24px);
+            }
+
+            &-title {
+                @include ItemTitle(30px, 1.333em);
+            }
+
+            &-desc {
+                @include ItemDesc(20px);
+            }
+
+            &-apply {
+                padding: 18px 16px;
+                @include ItemButton(30px, 8px);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 390px) {
+    .current-openings {
+        padding: 0 80px;
+
+        .container {
+            border: 1px solid var(--color-grey-15);
+        }
+
+        &__data {
+            @include Data(40px);
+            &-title {
+                padding: 80px 0 40px;
+                @include DataTitle(2.111em);
+            }
+            &-desc {
+                @include DataDesc(40px);
+                font-size: 0.888em;
+            }
+        }
+
+        &__title {
+            @include Title(40px, 1.222em);
+        }
+
+        &__list {
+            @include List();
+        }
+
+        &__item {
+            padding: 40px;
+            @include Item();
+            
+            &:not(:last-child) {
+                border-right: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(74px, 74px, 20px);
+            }
+
+            &-title {
+                @include ItemTitle(24px, 1.111em);
+            }
+
+            &-desc {
+                @include ItemDesc(14px);
+                font-size: 0.888em;
+            }
+
+            &-apply {
+                padding: 18px 16px;
+                @include ItemButton(30px, 8px);
+                font-size: 0.777em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .current-openings {
+        padding: 0 15px;
+
+        .container {
+            border: 1px solid var(--color-grey-15);
+        }
+
+        &__data {
+            @include Data(0px);
+            padding: 40px 0 40px 15px;
+            &-title {
+                @include DataTitle(1.556em);
+            }
+            &-desc {
+                @include DataDesc(0px);
+                margin-top: 6px;
+                font-size: 0.777em;
+            }
+        }
+
+        &__title {
+            @include Title(0px, 1.111em);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        &__list {
+            @include List();
+            flex-direction: column;
+        }
+
+        &__item {
+            padding: 24px;
+            @include Item();
+            width: 100%;
+            
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-grey-15);
+            }
+
+            &-icon {
+                @include ItemIcon(56px, 56px, 16px);
+            }
+
+            &-title {
+                @include ItemTitle(24px, 1.111em);
+            }
+
+            &-desc {
+                @include ItemDesc(14px);
+                font-size: 0.777em;
+            }
+
+            &-apply {
+                padding: 14px 16px;
+                @include ItemButton(30px, 6px);
+                font-size: 0.777em;
+            }
+        }
+    }
+}
+
